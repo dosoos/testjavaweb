@@ -27,4 +27,8 @@ public class Log {
         public String toString() {
             return "Log{" + "ip='" + ip + ", mac='" + mac + ", path='" + path + ", time='" + time + '}';
         }
+
+    public String getTime() {
+        return time;
+    }
 }

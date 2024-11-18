@@ -24,7 +24,30 @@
       <canvas id="lineChart" width="30%"></canvas>
     </div>
   </div>
+
+<%--  total request logs --%>
+    <div class="row" style="margin-top: 5rem">
+        <div class="col-md-12">
+        <h2>Request Logs</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Request Time</th>
+            <th>Request Account</th>
+            <th>Request Path</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%-- iterate request request_logs --%>
+            ${request_logs_text}
+
+
+            </tbody>
+        </table>
+        </div>
+    </div>
 </div>
+
 
 <%-- include chartjs library --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -37,10 +60,11 @@
   var pieChart = new Chart(pieCtx, {
     type: 'pie',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: <%=request.getAttribute("account_names")%>,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Query Account Balances',
+        data: <%=request.getAttribute("account_amounts")%>,
+        // random color size is labels.length
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -75,10 +99,10 @@
   var barChart = new Chart(barCtx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: <%=request.getAttribute("hour_group")%>,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'latest 24 hour request count',
+        data: <%=request.getAttribute("hour_counts")%>,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -115,7 +139,7 @@
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{
-        label: '# of Votes',
+        label: 'request trend',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

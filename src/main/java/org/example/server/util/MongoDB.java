@@ -144,14 +144,14 @@ public class MongoDB {
         return true;
     }
 
-    public List<Amount> getAllAmount(String address) {
+    public List<Amount> getAllAmount() {
         MongoDatabase database = mongoClient.getDatabase(DATABASE_NAME);
         MongoCollection<Document> collection = database.getCollection("amount");
         FindIterable<Document> documents = collection.find();
         List<Amount> list = new ArrayList<Amount>();
         for (Document document : documents) {
-            String amountText = document.getString("amount");
-            Amount extra = new Amount(document.getString("address"), Float.parseFloat(amountText));
+            Double amountText = document.getDouble("amount");
+            Amount extra = new Amount(document.getString("address"), Float.parseFloat(amountText.toString()));
             list.add(extra);
         }
         return list;

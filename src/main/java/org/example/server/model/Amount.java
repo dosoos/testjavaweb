@@ -18,4 +18,19 @@ public class Amount {
         return "Amount{" + "address='" + address + ", amount='" + amount + '}';
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(float amount) {
+        this.amount = amount;
+    }
 }
