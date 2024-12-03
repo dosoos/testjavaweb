@@ -18,8 +18,7 @@ import java.util.Map;
  */
 public class Ethereum {
 
-//    private static String BASE_URL = "https://ethereum-rpc.publicnode.com";
-    private static String BASE_URL = "https://eth.llamarpc.com";
+    private static String BASE_URL = "https://ethereum-rpc.publicnode.com";
 
     /**
      * Get Ethereum balance by address

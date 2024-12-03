@@ -21,7 +21,8 @@ import static com.mongodb.client.model.Filters.eq;
  */
 public class MongoDB {
 
-    private static String CONNECTION_URI = "mongodb://admin:admin@localhost:27017/";
+//    private static String CONNECTION_URI = "mongodb://admin:admin@localhost:27017/";
+    private static String CONNECTION_URI = "mongodb+srv://admin:Xyz1234567890-@cluster0.ni45b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
     private static String DATABASE_NAME = "task2";
 
