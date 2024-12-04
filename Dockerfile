@@ -1,5 +1,5 @@
 # java 16
-FROM maven:3.8.3-openjdk-16 as build
+FROM maven:3.8.3-openjdk-16 AS build
 
 # build source as war file
 WORKDIR /app
