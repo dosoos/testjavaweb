@@ -12,7 +12,7 @@ RUN mvn clean package
 RUN cp target/*.war ROOT.war
 
 # Use a Linix image with Tomcat 10
-FROM tomcat:9.0.97-jdk17-corretto
+FROM tomcat:10.1.0-M5-jdk16-openjdk-slim-bullseye
 
 # Copy in our ROOT.war to the right place in the container
 COPY --from=build /app/ROOT.war /usr/local/tomcat/webapps/
