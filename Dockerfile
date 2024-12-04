@@ -1,5 +1,5 @@
-# java 17
-FROM maven:3.9.9-amazoncorretto-17 as build
+# java 16
+FROM maven:3.8.3-openjdk-16 as build
 
 # build source as war file
 WORKDIR /app
